@@ -1,2 +1,2 @@
 # ClutterBuster
-A Skyrim mod that helps prevent the player from picking up dungeon clutter.
+A Skyrim mod that prevents the player from items of their choosing.
