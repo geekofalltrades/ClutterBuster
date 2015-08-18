@@ -66,7 +66,10 @@ ACKNOWLEDGEMENTS
 ----------------
 Thanks to Nexus Mods and to all contributors to the Creation Kit wiki and forums.
 
-And a very special thanks to the JContainers team for making Papyrus actually useable.
+Credit to perseid9, author of Realistic Needs and Diseases. I poked around in RN&D's source code
+to figure out how to create hotkeys that act on highlighted inventory items.
+
+And thanks to silvericed, author of JContainers, for making Papyrus actually useable.
 
 
 CONTACT
