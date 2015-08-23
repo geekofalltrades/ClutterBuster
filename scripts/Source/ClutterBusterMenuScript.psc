@@ -58,12 +58,20 @@ Event OnConfigClose()
 	RegisterForKey(ClutterBusterQuest.removeHotkey)
 EndEvent
 
+;=============
+;Settings Page
+;=============
+
 Function DrawSettingsPage()
 	{Draw the "Settings" MCM page.}
 
 	AddHeaderOption("$Hotkeys")
 	AddKeymapOptionST("AddHotkey", "$Add to List", ClutterBusterQuest.addHotkey)
+	AddToggleOptionST("AddHotkeyInInventory", "$  Active in Inventory", ClutterBusterQuest.addHotkeyInInventory)
+	AddToggleOptionST("AddHotkeyInWorld", "$  Active in World", ClutterBusterQuest.addHotkeyInWorld)
 	AddKeymapOptionST("RemoveHotkey", "$Remove from List", ClutterBusterQuest.removeHotkey)
+	AddToggleOptionST("RemoveHotkeyInInventory", "$  Active in Inventory", ClutterBusterQuest.removeHotkeyInInventory)
+	AddToggleOptionST("RemoveHotkeyInWorld", "$  Active in World", ClutterBusterQuest.removeHotkeyInWorld)
 	AddEmptyOption()
 	AddHeaderOption("$Debugging")
 	AddTextOptionST("DebugLevel", "$Debug Logging Level", debugLevels[ClutterBusterQuest.debugLevel])
@@ -119,6 +127,46 @@ State AddHotkey
 	EndEvent
 EndState
 
+State AddHotkeyInInventory
+	Event OnSelectST()
+		ClutterBusterQuest.addHotkeyInInventory = !ClutterBusterQuest.addHotkeyInInventory
+		SetToggleOptionValueST(ClutterBusterQuest.addHotkeyInInventory)
+
+		ClutterBusterQuest.DebugMsg("Set add hotkey enabled in inventory to " + ClutterBusterQuest.addHotkeyInInventory + " from MCM.", 1)
+	EndEvent
+
+	Event OnDefaultST()
+		ClutterBusterQuest.addHotkeyInInventory = True
+		SetToggleOptionValueST(True)
+
+		ClutterBusterQuest.DebugMsg("Restored add hotkey enabled in inventory to default (" + True + ") from MCM.", 1)
+	EndEvent
+
+	Event OnHighlightST()
+		SetInfoText("$CLUTBUST_HIGHLIGHT_ADD_HOTKEY_IN_INVENTORY")
+	EndEvent
+EndState
+
+State AddHotkeyInWorld
+	Event OnSelectST()
+		ClutterBusterQuest.addHotkeyInWorld = !ClutterBusterQuest.addHotkeyInWorld
+		SetToggleOptionValueST(ClutterBusterQuest.addHotkeyInWorld)
+
+		ClutterBusterQuest.DebugMsg("Set add hotkey enabled in world to " + ClutterBusterQuest.addHotkeyInWorld + " from MCM.", 1)
+	EndEvent
+
+	Event OnDefaultST()
+		ClutterBusterQuest.addHotkeyInWorld = True
+		SetToggleOptionValueST(True)
+
+		ClutterBusterQuest.DebugMsg("Restored add hotkey enabled in world to default (" + True + ") from MCM.", 1)
+	EndEvent
+
+	Event OnHighlightST()
+		SetInfoText("$CLUTBUST_HIGHLIGHT_ADD_HOTKEY_IN_WORLD")
+	EndEvent
+EndState
+
 State RemoveHotkey
 	Event OnKeyMapChangeST(int keyCode, string conflictControl, string conflictName)
 		if CheckKeyConflict(conflictControl, conflictName)
@@ -140,6 +188,46 @@ State RemoveHotkey
 
 	Event OnHighlightST()
 		SetInfoText("$CLUTBUST_HIGHLIGHT_REMOVE_HOTKEY")
+	EndEvent
+EndState
+
+State RemoveHotkeyInInventory
+	Event OnSelectST()
+		ClutterBusterQuest.removeHotkeyInInventory = !ClutterBusterQuest.removeHotkeyInInventory
+		SetToggleOptionValueST(ClutterBusterQuest.removeHotkeyInInventory)
+
+		ClutterBusterQuest.DebugMsg("Set remove hotkey enabled in inventory to " + ClutterBusterQuest.removeHotkeyInInventory + " from MCM.", 1)
+	EndEvent
+
+	Event OnDefaultST()
+		ClutterBusterQuest.removeHotkeyInInventory = True
+		SetToggleOptionValueST(True)
+
+		ClutterBusterQuest.DebugMsg("Restored remove hotkey enabled in inventory to default (" + True + ") from MCM.", 1)
+	EndEvent
+
+	Event OnHighlightST()
+		SetInfoText("$CLUTBUST_HIGHLIGHT_REMOVE_HOTKEY_IN_INVENTORY")
+	EndEvent
+EndState
+
+State RemoveHotkeyInWorld
+	Event OnSelectST()
+		ClutterBusterQuest.removeHotkeyInWorld = !ClutterBusterQuest.removeHotkeyInWorld
+		SetToggleOptionValueST(ClutterBusterQuest.removeHotkeyInWorld)
+
+		ClutterBusterQuest.DebugMsg("Set remove hotkey enabled in world to " + ClutterBusterQuest.removeHotkeyInWorld + " from MCM.", 1)
+	EndEvent
+
+	Event OnDefaultST()
+		ClutterBusterQuest.removeHotkeyInWorld = True
+		SetToggleOptionValueST(True)
+
+		ClutterBusterQuest.DebugMsg("Restored remove hotkey enabled in world to default (" + True + ") from MCM.", 1)
+	EndEvent
+
+	Event OnHighlightST()
+		SetInfoText("$CLUTBUST_HIGHLIGHT_REMOVE_HOTKEY_IN_WORLD")
 	EndEvent
 EndState
 
