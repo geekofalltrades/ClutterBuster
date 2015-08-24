@@ -1,4 +1,4 @@
-ClutterBuster 1.0
+DeActivator 1.0
 geekofalltrades
 not yet released
 
@@ -17,41 +17,55 @@ CONTENTS
 
 INTRODUCTION
 ------------
-ClutterBuster prevents items from being picked up from the world based on configurable blacklists
-and whitelists.
+DeActivator prevents the player from activating in-game objects (items, weapons, actors, doors...)
+of their choosing based on configurable whitelists and blacklists.
 
-ClutterBuster is the spiritual successor to another of my mods, QuickDrop. Where QuickDrop bandaged
+DeActivator is the spiritual successor to another of my mods, DeActivator. Where DeActivator bandaged
 over the issue of accidentally picking up dumb clutter by giving you hotkeys to quickly drop it,
-ClutterBuster implements a more robust solution with the help of JContainers that actually prevents
-the clutter from ever being picked up in the first place.
+DeActivator implements a more robust solution that actually prevents the clutter from ever being
+picked up in the first place.
 
 And thank god. Stupid dungeon clutter.
+
+But wait - there's more! DeActivator can function on anything with activation controls - so you can
+filter out actors you don't want to talk to, filter out plants you don't want to harvest, filter out
+doors you don't want to enter (sort of)... the possibilities are endless! Well, no, they're not, but
+there are a very impressive array of them!
 
 
 REQUIREMENTS
 ------------
   * JContainers v3.2
   * SKSE
-  * SkyUI v4.1 (for MCM)
+  * SkyUI v5.1
 
 
 COMPATIBILITY
 -------------
-No incompatibilities are known, and none are anticipated.
+No incompatibilities are known.
+
+DeActivator is anticipated to raise odd incompatibilities in situations where it filters mod or
+vanilla game content that uses the on OnActivation script event. DeActivator cannot stop these
+events from firing.
 
 
 INSTALLATION
 ------------
 Mod Manager (Recommended): Install with Mod Organizer or Nexus Mod Manager.
 
-Manual: Place QuickDrop.esp and QuickDrop.bsa in your Skyrim/Data directory.
+Manual: Place DeActivator.esp and DeActivator.bsa in your Skyrim/Data directory.
 
 
 UNINSTALLATION
 --------------
-Mod Manager (Recommended): Uninstall with Mod Organizer or Nexus Mod Manager.
+DeActivator is a script mod. Unless you really know what you're doing, you should not remove script
+mods from an existing save. If you try, and it breaks your save, I cannot support you. Only
+uninstall DeActivator before starting a new game.
 
-Manual: Remove QuickDrop.esp and QuickDrop.bsa from your Skyrim/Data directory.
+Mod Manager (Recommended): If installed with Mod Organizer or Nexus Mod Manager, uninstall with the
+same.
+
+Manual: Remove DeActivator.esp and DeActivator.bsa from your Skyrim/Data directory.
 
 
 PERMISSIONS

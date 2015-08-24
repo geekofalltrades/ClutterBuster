@@ -1,5 +1,5 @@
-Scriptname ClutterBusterQuestScript extends Quest
-{ClutterBuster main script.}
+Scriptname DeActivatorQuestScript extends Quest
+{DeActivator main script.}
 
 int Property addHotkey = -1 Auto
 {Add selected item to the active list.}
@@ -20,7 +20,7 @@ bool Property removeHotkeyInWorld = True Auto
 {Whether the remove hotkey is enabled in the world.}
 
 int Property debugLevel = 1 Auto
-{ClutterBuster debug logging level. 0 = off; 1 = debug; 2 = trace.}
+{DeActivator debug logging level. 0 = off; 1 = debug; 2 = trace.}
 
 ObjectReference crosshairRef = None
 ;The ref that we are currently focused on.
@@ -39,9 +39,9 @@ Event OnInit()
 
 	;Add our blacklist to JDB.
 	activeList = JArray.object()
-	JDB.SolveObjSetter(".ClutterBuster.blacklist", activeList, True)
+	JDB.SolveObjSetter(".DeActivator.blacklist", activeList, True)
 
-	DebugMsg("ClutterBusterQuestScript initialized.", 0)
+	DebugMsg("DeActivatorQuestScript initialized.", 0)
 EndEvent
 
 ;=====================================
@@ -124,7 +124,7 @@ Function DebugMsg(string msg, int level)
 	{Print a debug message, log level permitting.}
 
 	if level <= debugLevel
-		Debug.Trace("[ClutterBuster] " + msg)
+		Debug.Trace("[DeActivator] " + msg)
 	endif
 EndFunction
 

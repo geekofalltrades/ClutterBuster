@@ -1,13 +1,13 @@
-Scriptname ClutterBusterPlayerScript extends ReferenceAlias
-{ClutterBuster player script for tracking OnCrosshairRefChanged events.}
+Scriptname DeActivatorPlayerScript extends ReferenceAlias
+{DeActivator player script for tracking OnCrosshairRefChanged events.}
 
-ClutterBusterQuestScript Property ClutterBusterQuest Auto
-{The ClutterBuster main script.}
+DeActivatorQuestScript Property DeActivatorQuest Auto
+{The DeActivator main script.}
 
 Event OnInit()
 	RegisterForCrosshairRef()
 
-	ClutterBusterQuest.DebugMsg("ClutterBusterPlayerScript initialized.", 0)
+	DeActivatorQuest.DebugMsg("DeActivatorPlayerScript initialized.", 0)
 EndEvent
 
 ;On mod initialization, we're unsure whether the player is focused on anything or not. This might
@@ -23,14 +23,14 @@ Auto State Ready
 		;If we've shifted our focus from some ref to nothing, signal the quest script to unset its
 		;current crosshairRef and manipulate controls, if appropriate.
 		if crosshairRef == None
-			ClutterBusterQuest.DebugMsg("Got crosshair ref None.", 2)
-			ClutterBusterQuest.UnsetCrosshairRef()
+			DeActivatorQuest.DebugMsg("Got crosshair ref None.", 2)
+			DeActivatorQuest.UnsetCrosshairRef()
 
 		;If we've shifted our focus to some ref, either from nothing OR from some other ref, signal
 		;the quest script to set its current crosshairRef and manipulate controls, if appropriate.
 		else
-			ClutterBusterQuest.DebugMsg("Got crosshair ref " + crosshairRef.GetName() + " (" + crosshairRef.GetBaseObject() + ").", 2)
-			ClutterBusterQuest.SetCrosshairRef(crosshairRef)
+			DeActivatorQuest.DebugMsg("Got crosshair ref " + crosshairRef.GetName() + " (" + crosshairRef.GetBaseObject() + ").", 2)
+			DeActivatorQuest.SetCrosshairRef(crosshairRef)
 		endif
 
 		GoToState("Ready")
